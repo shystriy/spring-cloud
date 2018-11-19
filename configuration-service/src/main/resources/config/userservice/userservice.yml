@@ -1,0 +1,15 @@
+spring.jpa.database: "POSTGRESQL"
+spring.jpa.show-sql: "true"
+spring.jpa.hibernate.ddl-auto: "validate"
+spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation: "true"
+
+spring.datasource.platform:  "postgres"
+spring.datasource.driverClassName: "org.postgresql.Driver"
+spring.datasource.url: "jdbc:postgresql://database:5432/spring_cloud"
+spring.datasource.username: "postgres"
+spring.datasource.password: "{cipher}a4c9ae4c9e5a3f58b752503ba1b81400739ed85bb3a68678464044ee0d52570e" #postgres POST http://localhost:8888/encrypt
+
+spring.flyway.enabled: "true" # Whether to enable flyway.
+spring.flyway.encoding: "UTF-8" # Encoding of SQL migrations.
+spring.flyway.locations: "classpath:db/migration"

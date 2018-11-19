@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  configsrv:
+    image: spring-cloud/confsvr:version1
+    environment:
+      ENCRYPT_KEY:       "SIMPLEKEY"
+    ports:
+      - "8888:8888"
+  userservice:
+    image: spring-cloud/userservice:version1
+    ports:
+      - "8080:8080"
+    environment:
+      PROFILE: "default"
+      CONFIGSERVER_URI: "http://configsrv:8888"
+      CONFIGSERVER_PORT: "8888"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY:       "SIMPLEKEY"
+    extra_hosts:
+      - "database:192.168.0.103"
+
+  orderservice:
+    image: spring-cloud/orderservice:version1
+    ports:
+    - "8080:8080"
+    environment:
+      PROFILE: "default"
+      CONFIGSERVER_URI: "http://configsrv:8888"
+      CONFIGSERVER_PORT: "8888"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY:       "SIMPLEKEY"
+    extra_hosts:
+    - "database:192.168.0.103"
+
+
