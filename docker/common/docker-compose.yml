@@ -6,6 +6,20 @@ services:
     ports:
     - "8761:8761"
 
+  zuulsrv:
+    image: spring-cloud/zuulsrv:version1
+    ports:
+    - "5555:5555"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "5555"
+      CONFIGSERVER_URI: "http://configsrv:8888"
+      EUREKASERVER_URI: "http://eurekasrv:8761/eureka/"
+      EUREKASERVER_PORT:        "8761"
+      DATABASESERVER_PORT:      "5432"
+      CONFIGSERVER_PORT:        "8888"
+
+
   configsrv:
     image: spring-cloud/confsrv:version1
     ports:
@@ -21,7 +35,7 @@ services:
   userservice:
     image: spring-cloud/userservice:version1
     ports:
-      - "8080:8080"
+    - "8080:8080"
     environment:
       PROFILE: "default"
       SERVER_PORT: "8080"
@@ -32,7 +46,7 @@ services:
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "SIMPLEKEY"
     extra_hosts:
-      - "database:192.168.0.100"
+    - "database:192.168.0.100"
 
   orderservice:
     image: spring-cloud/orderservice:version1

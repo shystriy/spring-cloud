@@ -1,0 +1,5 @@
+zuul.ignored-services: "*"
+zuul.prefix: /api
+zuul.debug.request: true
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+
