@@ -1,5 +1,6 @@
 package ru.home.service;
 
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.home.model.Order;
@@ -19,7 +20,11 @@ public class OrderService {
     }
 
     public Order get(Long orderId) {
-        return orderRepository.findById(orderId).orElse(null);
+        return orderRepository.findOne(orderId);
+    }
+
+    public List<Order> getByUserId(Long userId) {
+        return orderRepository.getByUserId(userId);
     }
 
     @Transactional

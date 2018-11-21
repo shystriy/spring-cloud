@@ -3,6 +3,8 @@ package ru.home.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import ru.home.client.OrderFeignClient;
+import ru.home.model.Order;
 import ru.home.model.User;
 import ru.home.service.UserService;
 
@@ -25,6 +27,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrderFeignClient orderFeignClient;
+
+
     @GetMapping
     public List<User> getAll() {
         return userService.getAll();
@@ -38,6 +44,16 @@ public class UserController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public User save(@RequestBody User user) {
         return userService.save(user);
+    }
+
+    @GetMapping(value = "/order")
+    public List<Order> getOrders() {
+        return orderFeignClient.getOrders();
+    }
+
+    @GetMapping(value = "/{id}/order")
+    public List<Order> getOrdersByUser(@PathVariable Long id) {
+        return orderFeignClient.getOrdersByUserId(id);
     }
 
 }

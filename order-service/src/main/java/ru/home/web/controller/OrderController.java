@@ -35,6 +35,11 @@ public class OrderController {
         return orderService.get(id);
     }
 
+    @GetMapping(value = "/user/{id}")
+    public List<Order> getByUserId(@PathVariable Long id) {
+        return orderService.getByUserId(id);
+    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public Order save(@RequestBody Order order) {
         return orderService.save(order);

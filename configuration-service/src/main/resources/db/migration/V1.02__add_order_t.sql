@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS order;
+DROP TABLE IF EXISTS orders;
 
-CREATE TABLE order (
+CREATE TABLE orders (
   id      BIGINT PRIMARY KEY NOT NULL,
   user_id BIGINT             NOT NULL,
   status  TEXT               NOT NULL,

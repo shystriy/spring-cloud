@@ -2,6 +2,7 @@ package ru.home.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.home.client.OrderFeignClient;
 import ru.home.model.User;
 import ru.home.repository.UserRepository;
 
@@ -19,11 +20,13 @@ public class UserService {
     }
 
     public User get(Long userId) {
-        return userRepository.findById(userId).orElse(null);
+        return userRepository.findOne(userId);
     }
 
     @Transactional
     public User save(User user) {
         return userRepository.save(user);
     }
+
+
 }

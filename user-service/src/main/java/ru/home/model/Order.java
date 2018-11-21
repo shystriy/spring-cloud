@@ -5,13 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "orders")
 public class Order {
-    @Id
     private Long id;
 
-    @Column(name = "user_id")
     private Long userId;
 
     private String status;
