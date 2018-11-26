@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
   eurekasrv:
@@ -29,8 +29,9 @@ services:
       EUREKASERVER_URI: "http://eurekasrv:8761/eureka/"
       EUREKASERVER_PORT: "8761"
       ENCRYPT_KEY:       "SIMPLEKEY"
+      DOCKER_HOST_IP: ${DOCKER_HOST_IP}"
     extra_hosts:
-    - "database:192.168.0.100"
+    - "database:${DOCKER_HOST_IP}"
 
   userservice:
     image: spring-cloud/userservice:version1
@@ -45,8 +46,9 @@ services:
       CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "SIMPLEKEY"
+      DOCKER_HOST_IP: ${DOCKER_HOST_IP}"
     extra_hosts:
-    - "database:192.168.0.100"
+    - "database:${DOCKER_HOST_IP}"
 
   orderservice:
     image: spring-cloud/orderservice:version1
@@ -61,7 +63,8 @@ services:
       CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "SIMPLEKEY"
+      DOCKER_HOST_IP: ${DOCKER_HOST_IP}"
     extra_hosts:
-    - "database:192.168.0.100"
+    - "database:${DOCKER_HOST_IP}"
 
 

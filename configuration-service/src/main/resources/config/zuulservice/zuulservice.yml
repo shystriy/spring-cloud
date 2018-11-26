@@ -3,3 +3,5 @@ zuul.prefix: /api
 zuul.debug.request: true
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
 
+zuul.routes.userservice: /userservice/**
+zuul.routes.orderservice: /orderservice/**

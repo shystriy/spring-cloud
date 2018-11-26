@@ -43,7 +43,8 @@ spring:
 #                               file://<chapter 3>confsvr/src/main/resources/config/organizationservice
                searchLocations: classpath:config/,
                                 classpath:config/userservice,
-                                classpath:config/orderservice
+                                classpath:config/orderservice,
+                                classpath:config/zuulservice
 
 spring.jpa.database: "POSTGRESQL"
 spring.jpa.show-sql: "true"
