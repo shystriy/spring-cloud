@@ -44,7 +44,8 @@ spring:
                searchLocations: classpath:config/,
                                 classpath:config/userservice,
                                 classpath:config/orderservice,
-                                classpath:config/zuulservice
+                                classpath:config/zuulservice,
+                                classpath:config/authservice
 
 spring.jpa.database: "POSTGRESQL"
 spring.jpa.show-sql: "true"
