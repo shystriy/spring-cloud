@@ -18,6 +18,7 @@ eureka:
 
 server:
   contextPath:   /auth
+  port: 8901
 
 
 security.oauth2.resource.filter-order: 3

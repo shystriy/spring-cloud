@@ -1,3 +1,6 @@
+server:
+  port: 5555
+
 eureka:
   instance:
     preferIpAddress: true
@@ -10,4 +13,4 @@ eureka:
 zuul:
   prefix:  /api
 
-management.security.enabled: false
+#management.security.enabled: false

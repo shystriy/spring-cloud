@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class FilterUtils {
 
-    public static final String CORRELATION_ID = "tmx-correlation-id";
-    public static final String AUTH_TOKEN     = "tmx-auth-token";
-    public static final String USER_ID        = "tmx-user-id";
-    public static final String ORG_ID         = "tmx-org-id";
+    public static final String CORRELATION_ID = "scl-correlation-id";
+    public static final String AUTH_TOKEN     = "Authorization";
+    public static final String USER_ID        = "scl-user-id";
+    public static final String TYPE           = "scl-type";
     public static final String PRE_FILTER_TYPE = "pre";
     public static final String POST_FILTER_TYPE = "post";
 
@@ -29,19 +29,19 @@ public class FilterUtils {
         ctx.addZuulRequestHeader(CORRELATION_ID, correlationId);
     }
 
-    public  final String getOrgId(){
+    public final String getType(){
         RequestContext ctx = RequestContext.getCurrentContext();
-        if (ctx.getRequest().getHeader(ORG_ID) !=null) {
-            return ctx.getRequest().getHeader(ORG_ID);
+        if (ctx.getRequest().getHeader(TYPE) !=null) {
+            return ctx.getRequest().getHeader(TYPE);
         }
         else{
-            return  ctx.getZuulRequestHeaders().get(ORG_ID);
+            return  ctx.getZuulRequestHeaders().get(TYPE);
         }
     }
 
-    public void setOrgId(String orgId){
+    public void setType(String type){
         RequestContext ctx = RequestContext.getCurrentContext();
-        ctx.addZuulRequestHeader(ORG_ID,  orgId);
+        ctx.addZuulRequestHeader(TYPE,  type);
     }
 
     public final String getUserId(){

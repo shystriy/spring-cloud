@@ -1,7 +1,12 @@
 zuul.ignored-services: "*"
 zuul.prefix: /api
 zuul.debug.request: true
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
 
 zuul.routes.userservice: /userservice/**
 zuul.routes.orderservice: /orderservice/**
+zuul.routes.authservice: /authservice/**
+
+zuul.sensitiveHeaders: Cookie,Set-Cookie
+
+signing.key: "345345fsdfsf5345"

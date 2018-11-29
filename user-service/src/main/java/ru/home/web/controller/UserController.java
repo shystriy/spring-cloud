@@ -3,7 +3,7 @@ package ru.home.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.home.client.OrderFeignClient;
+import ru.home.client.OrderRestTemplateClient;
 import ru.home.model.Order;
 import ru.home.model.User;
 import ru.home.service.UserService;
@@ -28,7 +28,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private OrderFeignClient orderFeignClient;
+    private OrderRestTemplateClient orderRestTemplateClient;
 
 
     @GetMapping
@@ -48,12 +48,12 @@ public class UserController {
 
     @GetMapping(value = "/order")
     public List<Order> getOrders() {
-        return orderFeignClient.getOrders();
+        return orderRestTemplateClient.getOrders();
     }
 
     @GetMapping(value = "/{id}/order")
     public List<Order> getOrdersByUser(@PathVariable Long id) {
-        return orderFeignClient.getOrdersByUserId(id);
+        return orderRestTemplateClient.getOrdersByUserId(id);
     }
 
 }

@@ -2,7 +2,6 @@ package ru.home.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.home.client.OrderFeignClient;
 import ru.home.model.User;
 import ru.home.repository.UserRepository;
 

@@ -1,16 +1,16 @@
 package ru.home.model;
 
 public class UserInfo {
-    String organizationId;
+    String type;
     String userId;
 
-    public String getOrganizationId() {
-        return this.organizationId;
+    public String getType() {
+        return this.type;
     }
 
 
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getUserId() {
