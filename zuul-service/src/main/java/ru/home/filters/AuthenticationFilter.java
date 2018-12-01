@@ -22,10 +22,10 @@ public class AuthenticationFilter extends ZuulFilter {
 
 
     @Autowired
-    FilterUtils filterUtils;
+    private FilterUtils filterUtils;
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @Override
     public String filterType() {
